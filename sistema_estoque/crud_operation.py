@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from db_operation import insert
+from db_operation import insert, update,delete
 
 class CrudOperation():
     
@@ -16,10 +16,13 @@ class CrudOperation():
     def read(self, valor):
         pass
 
-    @abstractmethod
-    def update(self, valor, novo_valor):
-        pass
 
     @abstractmethod
-    def delete(self, valor):
-        pass
+    def update_info(tbl_name, field, old_value, new_value):
+        update(tbl_name, field, old_value, new_value)
+
+        
+
+    @abstractmethod
+    def delete_info(tbl_name, field,value):
+        delete(tbl_name, field, value)

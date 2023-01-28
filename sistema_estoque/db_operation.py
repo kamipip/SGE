@@ -1,7 +1,3 @@
-
-
-
-
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -31,18 +27,32 @@ def insert(tbl_name,fieldname1, fieldname2, fieldname3, value1, value2,value3):
 
 
 
-def update(tbl_name, field,old_value, new_value):
+def update(tbl_name, field, old_value, new_value):
     #Little Trick to inject transform old_values in new_values
 
-    sql = "UPDATE {} SET {} = %s WHERE address = %s".format(tbl_name, field)
-    values = (old_value, new_value)
+    sql = "UPDATE {} SET {} = %s WHERE {} = %s".format(tbl_name, field, field)
+
+    values = (new_value, old_value)
+
     mycursor.execute(sql,values)
+
     mydb.commit()
+
+    print('Register Update')
 
 def delete(tbl_name, field, value):
     sql = "DELETE FROM {} WHERE {} = '{}'".format(tbl_name, field, value)
+
     mycursor.execute(sql)
+
     mydb.commit()
+
+    print("Record Delete")
+
+
+
+
+
 
 
 
