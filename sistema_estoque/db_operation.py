@@ -1,10 +1,6 @@
 
 
-###  DISCLAMER ###
 
-#this code can be better, we can create a abstract class to represent an database
-
-#Maybe Jadson and kamila can do
 
 import mysql.connector
 
@@ -18,12 +14,21 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 
-#the %s turn the code more secure and prevent sql injection
+
 
 def insert(tbl_name,fieldname1, fieldname2, fieldname3, value1, value2,value3):
-    sql = "INSERT INTO {} ({}, {}, {}) VALUES(%s %s %s).".format(tbl_name,fieldname1, fieldname2, fieldname3)
-    values = (value1, value2,value3)
+    #sql = "INSERT INTO informacoes_filial (nome, tipo, endereco) VALUES (%s, %s, %s)"
+
+    sql = "INSERT INTO {} ({}, {}, {}) VALUES (%s, %s, %s)".format(tbl_name, fieldname1, fieldname2, fieldname3)
+   
+    values =  (value1, value2, value3)
+    
     mycursor.execute(sql, values)
+
+    mydb.commit()
+
+    print("Record")
+
 
 
 def update(tbl_name, field,old_value, new_value):
