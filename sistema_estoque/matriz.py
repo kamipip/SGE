@@ -1,7 +1,45 @@
-class Matriz:
-    def __init__(self, nome, endereco, tipo):
+from abc import ABC, abstractmethod
+from crud_operation import CrudOperation
+from typing import Final
 
+# Constant areas. an .env file is much more better
+TABLE: Final = 'informacoes_matriz'
+FIELD1: Final = 'nome'
+FIELD2: Final = 'tipo'
+FIELD3: Final = 'endereco'
+
+class Matriz:
+    def __init__(self, nome, tipo, endereco):
+        
         self.nome = nome
-        self.endereco = endereco
         self.tipo = tipo
+        self.endereco = endereco
+
+    
+    def create_matriz(self, nome, tipo, endereco):
+                                  #LOL
+        CrudOperation.create(str(TABLE), str(FIELD1), str(FIELD2), str(FIELD3), nome, tipo, endereco)
+
+    #Life is good, but can be better
+    def edit_matriz(self, old_info, new_info, select_code):
+        if select_code == 1:
+            CrudOperation.update_info(str(TABLE), str(FIELD1), old_info, new_info)
+        if select_code == 2:
+            CrudOperation.update_info(str(TABLE), str(FIELD2), old_info, new_info)
+        if select_code == 3:
+            CrudOperation.update_info(str(TABLE), str(FIELD3), old_info, new_info)
+    
+    def delete_matriz(self, matriz_del):
+        CrudOperation.delete_info(str(TABLE), str(FIELD1), matriz_del)
+
+
+filial1 = Matriz('filial1', 'ferro', 'avenida do aço')
+
+filial1.edit_matriz('ferro', 'matriz', 2)
+
+
+
+    
+    
+
     
