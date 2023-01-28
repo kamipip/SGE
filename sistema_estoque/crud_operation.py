@@ -7,8 +7,8 @@ class CrudOperation():
         self.valor = valor
     
     @abstractmethod
-    def create(self, tbl_name,fieldname1, fieldname2, fieldname3, value1, value2,value3):
-        insert(tbl_name, fieldname1, fieldname2, fieldname3, value1,value2,value3)
+    def create(tbl_name,fieldname1, fieldname2, fieldname3, value1, value2, value3):
+        insert(tbl_name, fieldname1, fieldname2, fieldname3, value1, value2, value3)
 
         
     

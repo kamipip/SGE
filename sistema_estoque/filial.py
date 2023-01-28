@@ -18,8 +18,9 @@ class Filial(CrudOperation):
         self.endereco = endereco
         self.tipo = tipo
     
-    def create_filial(self, nome, endereco, tipo, value3):
-            CrudOperation.create(TABLE, FIELD1, FIELD2, FIELD3, nome, tipo, endereco)
+    def create_filial(self, nome, endereco, tipo):
+                                  #gambiarra das grandes
+            CrudOperation.create(str(TABLE), str(FIELD1), str(FIELD2), str(FIELD3), nome, tipo, endereco)
     
     
 filial1 = Filial('filial1', 'ferro', 'avenida do aço')
