@@ -1,13 +1,22 @@
 import mysql.connector
 
+
+
+#Adding try to connection
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "root",
     password = "",
-    database = "produto"
+    database = ""
 )
 
+
+
 mycursor = mydb.cursor()
+
+
+
+
 
 
 
@@ -19,11 +28,18 @@ def insert(tbl_name,fieldname1, fieldname2, fieldname3, value1, value2,value3):
    
     values =  (value1, value2, value3)
     
-    mycursor.execute(sql, values)
 
-    mydb.commit()
 
-    print("Record")
+    #Command to commit in database it must be include in an try-catch
+
+    try:
+        mycursor.execute(sql, values)
+
+        mydb.commit()
+     #Rewrite to support personal mysql or mariadb erros   
+    except mysql.connector.Error as err:
+        print("Connection error")
+
 
 
 
@@ -34,18 +50,26 @@ def update(tbl_name, field, old_value, new_value):
 
     values = (new_value, old_value)
 
-    mycursor.execute(sql,values)
+    try:
+        mycursor.execute(sql, values)
 
-    mydb.commit()
+        mydb.commit()
+     
+    except mysql.connector.Error as err:
+        print("Connection error")
 
     print('Register Update')
 
 def delete(tbl_name, field, value):
     sql = "DELETE FROM {} WHERE {} = '{}'".format(tbl_name, field, value)
 
-    mycursor.execute(sql)
+    try:
+        mycursor.execute(sql)
 
-    mydb.commit()
+        mydb.commit()
+     
+    except mysql.connector.Error as err:
+        print("Connection error")
 
     print("Record Delete")
 

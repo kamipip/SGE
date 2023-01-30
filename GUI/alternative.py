@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt,QSize
 from PyQt6.QtGui import QIcon, QAction
 
-#Module from dark mode
+#Module from dark mode or style
 #from qt_material import apply_stylesheet
 
 class MainWindow(QMainWindow):
