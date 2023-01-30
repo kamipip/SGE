@@ -7,9 +7,12 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt,QSize
 from PyQt6.QtGui import QIcon, QAction
-from qt_material import apply_stylesheet
+
+#Module from dark mode
+#from qt_material import apply_stylesheet
 
 class MainWindow(QMainWindow):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setWindowTitle('Sistema de Cadastro')
@@ -47,17 +50,17 @@ class MainWindow(QMainWindow):
         form.setLayout(layout)
 
 
-        self.first_name = QLineEdit(form)
-        self.last_name = QLineEdit(form)
-        self.age = QSpinBox(form, minimum=18, maximum=67)
-        self.age.clear()
+        self.product = QLineEdit(form)
+        self.value = QLineEdit(form)
+        self.qnt = QSpinBox(form, minimum=18, maximum=67)
+        self.qnt.clear()
 
-        layout.addRow('Produto', self.first_name)
-        layout.addRow('Valor R$', self.last_name)
-        layout.addRow('U', self.age)
+        layout.addRow('Produto', self.product)
+        layout.addRow('Valor R$', self.value)
+        layout.addRow('U', self.qnt)
 
         btn_add = QPushButton('Salvar Produto')
-        btn_add.clicked.connect(self.add_employee)
+        btn_add.clicked.connect(self.add_product)
         layout.addRow(btn_add)
 
         # add delete & edit button
@@ -93,28 +96,29 @@ class MainWindow(QMainWindow):
             self.table.removeRow(current_row)
 
     def valid(self):
-        first_name = self.first_name.text().strip()
-        last_name = self.last_name.text().strip()
+        product = self.product.text().strip()
+        value = self.value.text().strip()
 
         
-        if not first_name:
+        if not product:
             QMessageBox.critical(self, 'Error', 'Insira o nome do produto')
-            self.first_name.setFocus()
+            self.product.setFocus()
             return False
 
-        if not last_name:
+        if not value:
             QMessageBox.critical(self, 'Error', 'Insira o valor do produto')
-            self.last_name.setFocus()
+            self.value.setFocus()
             return False
 
         try:
-            age = int(self.age.text().strip())
+            qnt = int(self.qnt.text().strip())
         except ValueError:
             QMessageBox.critical(self, 'Error', 'Insira a quantidade correta ')
             self.age.setFocus()
             return False
 
-        if age <= 0 or age >= 1000000:
+         #Something to not buffer overflow   
+        if qnt <= 0 or qnt >= 1000000:
             QMessageBox.critical(
                 self, 'Error', 'Valor de Produto Ultrapassado')
             return False
@@ -122,24 +126,24 @@ class MainWindow(QMainWindow):
         return True
 
     def reset(self):
-        self.first_name.clear()
-        self.last_name.clear()
-        self.age.clear()
+        self.product.clear()
+        self.value.clear()
+        self.qnt.clear()
 
-    def add_employee(self):
+    def add_product(self):
         if not self.valid():
             return
 
         row = self.table.rowCount()
         self.table.insertRow(row)
         self.table.setItem(row, 0, QTableWidgetItem(
-            self.first_name.text().strip())
+            self.product.text().strip())
         )
         self.table.setItem(
-            row, 1, QTableWidgetItem(self.last_name.text())
+            row, 1, QTableWidgetItem(self.value.text())
         )
         self.table.setItem(
-            row, 2, QTableWidgetItem(self.age.text())
+            row, 2, QTableWidgetItem(self.qnt.text())
         )
 
         self.reset()
@@ -147,7 +151,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    apply_stylesheet(app, theme='dark_teal.xml')
+    #apply_stylesheet(app, theme='dark_teal.xml')
     window = MainWindow()
     window.show()
     sys.exit(app.exec())

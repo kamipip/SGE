@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from crud_operation import CrudOperation
 from typing import Final
 
@@ -33,9 +32,6 @@ class Matriz:
         CrudOperation.delete_info(str(TABLE), str(FIELD1), matriz_del)
 
 
-filial1 = Matriz('filial1', 'ferro', 'avenida do aço')
-
-filial1.edit_matriz('ferro', 'matriz', 2)
 
 
 
