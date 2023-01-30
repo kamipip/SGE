@@ -2,10 +2,10 @@ from crud_operation import CrudOperation
 from typing import Final
 
 # Constant areas. an .env file is much more better
-TABLE: Final = 'informacoes_matriz'
-FIELD1: Final = 'nome'
-FIELD2: Final = 'tipo'
-FIELD3: Final = 'endereco'
+#TABLE: Final = 'informacoes_matriz'
+#FIELD1: Final = 'nome'
+#FIELD2: Final = 'tipo'
+#FIELD3: Final = 'endereco'
 
 class Matriz:
     def __init__(self, nome, tipo, endereco):

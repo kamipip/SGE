@@ -74,9 +74,9 @@ class MainWindow(QMainWindow):
         toolbar.addAction(delete_action)
         dock.setWidget(form)
 
-        delete_action = QAction(QIcon('./assets/industry.png'), '&Delete', self)
-        delete_action.triggered.connect(self.delete)
-        toolbar.addAction(delete_action)
+        transfer_action = QAction(QIcon('./assets/transfer.png'), '&Transfer', self)
+        transfer_action.triggered.connect(self.transfer)
+        toolbar.addAction(transfer_action)
         dock.setWidget(form)
 
 
@@ -94,6 +94,33 @@ class MainWindow(QMainWindow):
         )
         if button == QMessageBox.StandardButton.Yes:
             self.table.removeRow(current_row)
+
+    def transfer(self):
+        #Getting Content From Product
+
+        #Not the best solution, but a structal solution
+
+        index = self.table.currentIndex()
+
+        NewIndex_product = self.table.model().index(index.row(), 0)
+        #print('Index is :',NewIndex)
+
+        product = self.table.model().data(NewIndex_product)
+
+        NewIndex_value = self.table.model().index(index.row(),1)
+
+        value = self.table.model().data(NewIndex_value)
+
+        NewIndex_qnt = self.table.model().index(index.row(),2)
+
+        qnt = self.table.model().data(NewIndex_qnt)
+
+    
+
+        
+        
+        
+   
 
     def valid(self):
         product = self.product.text().strip()
