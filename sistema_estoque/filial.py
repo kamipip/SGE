@@ -4,10 +4,11 @@ from crud_operation import CrudOperation
 
 # Constant areas. an .env file is much more better
 
-#TABLE: Final = 'informacoes_filial'
-#FIELD1: Final = 'nome'
-#FIELD2: Final = 'tipo'
-#FIELD3: Final = 'endereco'
+with open("edit_filial.txt", "r") as arquivo:
+    TABLE = arquivo.readline().strip()
+    FIELD1 = arquivo.readline().strip()
+    FIELD2 = arquivo.readline().strip()
+    FIELD3 = arquivo.readline().strip()
 
 
 class Filial(CrudOperation):
@@ -22,7 +23,7 @@ class Filial(CrudOperation):
                                   #LOL
             CrudOperation.create(str(TABLE), str(FIELD1), str(FIELD2), str(FIELD3), nome, tipo, endereco)
 
-    #Life is good, but can be better
+    #Life is good, but not a strawberry
     def edit_filial(self, old_info, new_info, select_code):
         if select_code == 1:
             CrudOperation.update_info(str(TABLE), str(FIELD1), old_info, new_info)

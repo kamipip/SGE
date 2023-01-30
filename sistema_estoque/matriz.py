@@ -2,10 +2,11 @@ from crud_operation import CrudOperation
 from typing import Final
 
 # Constant areas. an .env file is much more better
-#TABLE: Final = 'informacoes_matriz'
-#FIELD1: Final = 'nome'
-#FIELD2: Final = 'tipo'
-#FIELD3: Final = 'endereco'
+with open("edit_matriz.txt", "r") as arquivo:
+        TABLE = arquivo.readline().strip()
+        FIELD1 = arquivo.readline().strip()
+        FIELD2 = arquivo.readline().strip()
+        FIELD3 = arquivo.readline().strip()
 
 class Matriz:
     def __init__(self, nome, tipo, endereco):

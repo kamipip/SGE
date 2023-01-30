@@ -3,11 +3,12 @@ from crud_operation import CrudOperation
 from typing import Final
 
 
-TABLE:  Final = 'informacoes_produto'
-FIELD1: Final = 'nome'
-FIELD2: Final = 'valor'
-FIELD3: Final = 'quantidade'
-
+with open("edit_pdt.txt", "r") as arquivo:
+    TABLE = arquivo.readline().strip()
+    FIELD1 = arquivo.readline().strip()
+    FIELD2 = arquivo.readline().strip()
+    FIELD3 = arquivo.readline().strip()
+    
 class Produto:
     def __init__(self, nome, valor, quantidade):
 
