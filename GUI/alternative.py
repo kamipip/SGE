@@ -21,16 +21,17 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 600, 400)
 
         products = [
-            {'Produto': 'Metal', 'Valor R$': '1000', 'Unidades': 25},
+            {'Produto': 'Metal', 'Valor R$': '1000', 'Unidades': 25, 'Estoque': 'ZR456Filial'},
         ]
 
         self.table = QTableWidget(self)
         self.setCentralWidget(self.table)
 
-        self.table.setColumnCount(3)
+        self.table.setColumnCount(4)
         self.table.setColumnWidth(0, 150)
         self.table.setColumnWidth(1, 150)
-        self.table.setColumnWidth(2, 50)
+        self.table.setColumnWidth(2, 150)
+        self.table.setColumnWidth(3,150)
 
         self.table.setHorizontalHeaderLabels(products[0].keys())
         self.table.setRowCount(len(products))
@@ -40,6 +41,7 @@ class MainWindow(QMainWindow):
             self.table.setItem(row, 0, QTableWidgetItem(e['Produto']))
             self.table.setItem(row, 1, QTableWidgetItem(e['Valor R$']))
             self.table.setItem(row, 2, QTableWidgetItem(str(e['Unidades'])))
+            self.table.setItem(row, 3, QTableWidgetItem(str(e['Estoque'])))
             row += 1
 
         dock = QDockWidget('Salvar Produto')
@@ -55,11 +57,14 @@ class MainWindow(QMainWindow):
         self.product = QLineEdit(form)
         self.value = QLineEdit(form)
         self.qnt = QSpinBox(form, minimum=18, maximum=67)
+        self.estoque = QLineEdit(form)
         self.qnt.clear()
 
         layout.addRow('Produto', self.product)
         layout.addRow('Valor R$', self.value)
-        layout.addRow('U', self.qnt)
+        layout.addRow('Unidades', self.qnt)
+        layout.addRow('Estoque', self.estoque)
+
 
         btn_add = QPushButton('Salvar Produto')
         btn_add.clicked.connect(self.add_product)
@@ -144,6 +149,7 @@ class MainWindow(QMainWindow):
     def valid(self):
         product = self.product.text().strip()
         value = self.value.text().strip()
+        estoque = self.estoque.text().strip()
 
         
         if not product:
@@ -153,6 +159,11 @@ class MainWindow(QMainWindow):
 
         if not value:
             QMessageBox.critical(self, 'Error', 'Insira o valor do produto')
+            self.value.setFocus()
+            return False
+
+        if not estoque:
+            QMessageBox.critical(self, 'Error', 'Insira o nome do estoque')
             self.value.setFocus()
             return False
 
@@ -175,6 +186,7 @@ class MainWindow(QMainWindow):
         self.product.clear()
         self.value.clear()
         self.qnt.clear()
+        self.estoque.clear()
 
     def add_product(self):
         if not self.valid():
@@ -190,6 +202,10 @@ class MainWindow(QMainWindow):
         )
         self.table.setItem(
             row, 2, QTableWidgetItem(self.qnt.text())
+        )
+
+        self.table.setItem(
+            row, 3, QTableWidgetItem(self.estoque.text())
         )
 
         self.reset()
