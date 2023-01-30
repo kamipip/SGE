@@ -8,6 +8,8 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt,QSize
 from PyQt6.QtGui import QIcon, QAction
 
+from PyQt6.QtWidgets import *
+
 #Module from dark mode or style
 #from qt_material import apply_stylesheet
 
@@ -19,7 +21,7 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 600, 400)
 
         products = [
-            {'Produto': 'Metal', 'Valor R$': '1000', 'U': 25},
+            {'Produto': 'Metal', 'Valor R$': '1000', 'Unidades': 25},
         ]
 
         self.table = QTableWidget(self)
@@ -37,7 +39,7 @@ class MainWindow(QMainWindow):
         for e in products:
             self.table.setItem(row, 0, QTableWidgetItem(e['Produto']))
             self.table.setItem(row, 1, QTableWidgetItem(e['Valor R$']))
-            self.table.setItem(row, 2, QTableWidgetItem(str(e['U'])))
+            self.table.setItem(row, 2, QTableWidgetItem(str(e['Unidades'])))
             row += 1
 
         dock = QDockWidget('Salvar Produto')
@@ -91,6 +93,7 @@ class MainWindow(QMainWindow):
             'Deseja Apagar o produto cadastrado',
             QMessageBox.StandardButton.Yes |
             QMessageBox.StandardButton.No
+            
         )
         if button == QMessageBox.StandardButton.Yes:
             self.table.removeRow(current_row)
@@ -114,6 +117,22 @@ class MainWindow(QMainWindow):
         NewIndex_qnt = self.table.model().index(index.row(),2)
 
         qnt = self.table.model().data(NewIndex_qnt)
+
+        reply = QMessageBox()
+        reply.setText("Deseja Realmente Transferir o Produto")
+        reply.setStandardButtons(QMessageBox.StandardButton.Yes | 
+                     QMessageBox.StandardButton.No)
+        reply.setIcon(QMessageBox.Icon.Question)
+
+        x = reply.exec()
+
+        if x == QMessageBox.StandardButton.Yes:
+             dialog = QMessageBox(parent=self, text="Transferência Realizada com Sucesso")
+             dialog.setWindowTitle("Message Dialog")
+             dialog.setIcon(QMessageBox.Icon.Information)
+             ret = dialog.exec()
+             #Saving data in database 
+           
 
     
 
