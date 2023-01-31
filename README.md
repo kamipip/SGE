@@ -4,5 +4,5 @@
 antes de clonar e dar o Git pull executar o seguinte comando para baixar todas as dependências do sistema
 
 ```console
-foo@bar: pip install -r requirements.txt
+pip install -r requirements.txt
 ```
