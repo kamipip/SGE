@@ -1,4 +1,8 @@
+
+#Kernel Manipulation Module
 import sys
+
+#Visual Modules
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QTableWidget, 
     QTableWidgetItem, QDockWidget, QFormLayout, 
@@ -10,7 +14,15 @@ from PyQt6.QtGui import QIcon, QAction
 
 from PyQt6.QtWidgets import *
 
-#Module from dark mode or style
+
+#Modules to Create, Read and Update
+from filial import Filial
+from produto import Produto
+from matriz import Matriz
+
+
+
+#Style Module
 #from qt_material import apply_stylesheet
 
 class MainWindow(QMainWindow):
@@ -122,6 +134,9 @@ class MainWindow(QMainWindow):
         NewIndex_qnt = self.table.model().index(index.row(),2)
 
         qnt = self.table.model().data(NewIndex_qnt)
+
+        f1 = Produto(product, value, qnt)
+        f1.create_product(product, value, qnt)
 
         reply = QMessageBox()
         reply.setText("Deseja Realmente Transferir o Produto")
