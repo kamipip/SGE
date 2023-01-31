@@ -1,4 +1,3 @@
-
 #Kernel Manipulation Module
 import sys
 
@@ -16,9 +15,9 @@ from PyQt6.QtWidgets import *
 
 
 #Modules to Create, Read and Update
-from filial import Filial
-from produto import Produto
-from matriz import Matriz
+#from filial import Filial
+#from produto import Produto
+#from matriz import Matriz
 
 
 
@@ -29,7 +28,7 @@ class MainWindow(QMainWindow):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.setWindowTitle('Sistema de Cadastro')
+        self.setWindowTitle('Sistema de Cadastro de Gestão')
         self.setGeometry(100, 100, 600, 400)
 
         products = [
@@ -40,13 +39,19 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.table)
 
         self.table.setColumnCount(4)
-        self.table.setColumnWidth(0, 150)
-        self.table.setColumnWidth(1, 150)
-        self.table.setColumnWidth(2, 150)
-        self.table.setColumnWidth(3,150)
+        self.table.setColumnWidth(0, 90)
+        self.table.setColumnWidth(1, 90)
+        self.table.setColumnWidth(2, 90)
+        self.table.setColumnWidth(3,90)
 
         self.table.setHorizontalHeaderLabels(products[0].keys())
         self.table.setRowCount(len(products))
+
+        #Lock Maximaze button
+        #Not Working 
+        #MainWindow.setWindowFlags(Qt.WindowType.CustomizeWindowHint | Qt.WindowType.WindowCloseButtonHint | Qt.WindowType.WindowMinimizeButtonHint)
+
+
 
         row = 0
         for e in products:
@@ -73,9 +78,9 @@ class MainWindow(QMainWindow):
         self.qnt.clear()
 
         layout.addRow('Produto', self.product)
-        layout.addRow('Valor R$', self.value)
-        layout.addRow('Unidades', self.qnt)
-        layout.addRow('Estoque', self.estoque)
+        layout.addRow('Valor R$:', self.value)
+        layout.addRow('Unidades:', self.qnt)
+        layout.addRow('Estoque:', self.estoque)
 
 
         btn_add = QPushButton('Salvar Produto')
@@ -97,6 +102,9 @@ class MainWindow(QMainWindow):
         transfer_action.triggered.connect(self.transfer)
         toolbar.addAction(transfer_action)
         dock.setWidget(form)
+
+        change_window_action = QAction(QIcon('./assets/matriz.png'), '&Transition', self)
+        
 
 
     def delete(self):
@@ -135,8 +143,7 @@ class MainWindow(QMainWindow):
 
         qnt = self.table.model().data(NewIndex_qnt)
 
-        f1 = Produto(product, value, qnt)
-        f1.create_product(product, value, qnt)
+     
 
         reply = QMessageBox()
         reply.setText("Deseja Realmente Transferir o Produto")
@@ -151,7 +158,9 @@ class MainWindow(QMainWindow):
              dialog.setWindowTitle("Message Dialog")
              dialog.setIcon(QMessageBox.Icon.Information)
              ret = dialog.exec()
-             #Saving data in database 
+             #Saving data in database
+                #f1 = Produto(product, value, qnt)
+                #f1.create_product(product, value, qnt)
            
 
     
@@ -202,6 +211,8 @@ class MainWindow(QMainWindow):
         self.value.clear()
         self.qnt.clear()
         self.estoque.clear()
+
+
 
     def add_product(self):
         if not self.valid():
