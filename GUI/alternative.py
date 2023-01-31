@@ -13,6 +13,8 @@ from PyQt6.QtGui import QIcon, QAction
 
 from PyQt6.QtWidgets import *
 
+from alternative2 import MainWindow2
+
 
 #Modules to Create, Read and Update
 #from filial import Filial
@@ -31,8 +33,9 @@ class MainWindow(QMainWindow):
         self.setWindowTitle('Sistema de Cadastro de Gestão')
         self.setGeometry(100, 100, 600, 400)
 
+        #Produto Teste
         products = [
-            {'Produto': 'Metal', 'Valor R$': '1000', 'Unidades': 25, 'Estoque': 'ZR456Filial'},
+            {'Produto': 'Metal', 'Valor R$': '1000', 'Unidades': 25, 'Destino': 'ZR456Filial'},
         ]
 
         self.table = QTableWidget(self)
@@ -58,7 +61,7 @@ class MainWindow(QMainWindow):
             self.table.setItem(row, 0, QTableWidgetItem(e['Produto']))
             self.table.setItem(row, 1, QTableWidgetItem(e['Valor R$']))
             self.table.setItem(row, 2, QTableWidgetItem(str(e['Unidades'])))
-            self.table.setItem(row, 3, QTableWidgetItem(str(e['Estoque'])))
+            self.table.setItem(row, 3, QTableWidgetItem(str(e['Destino'])))
             row += 1
 
         dock = QDockWidget('Salvar Produto')
@@ -80,7 +83,7 @@ class MainWindow(QMainWindow):
         layout.addRow('Produto', self.product)
         layout.addRow('Valor R$:', self.value)
         layout.addRow('Unidades:', self.qnt)
-        layout.addRow('Estoque:', self.estoque)
+        layout.addRow('Destino:', self.estoque)
 
 
         btn_add = QPushButton('Salvar Produto')
@@ -103,7 +106,11 @@ class MainWindow(QMainWindow):
         toolbar.addAction(transfer_action)
         dock.setWidget(form)
 
-        change_window_action = QAction(QIcon('./assets/matriz.png'), '&Transition', self)
+        change_window_action = QAction(QIcon('./assets/industry.png'), '&Change to Matriz System', self)
+        change_window_action.triggered.connect(self.change)
+        toolbar.addAction(change_window_action)
+        dock.setWidget(form)
+
         
 
 
@@ -155,7 +162,7 @@ class MainWindow(QMainWindow):
 
         if x == QMessageBox.StandardButton.Yes:
              dialog = QMessageBox(parent=self, text="Transferência Realizada com Sucesso")
-             dialog.setWindowTitle("Message Dialog")
+             dialog.setWindowTitle("Aviso")
              dialog.setIcon(QMessageBox.Icon.Information)
              ret = dialog.exec()
              #Saving data in database
@@ -163,12 +170,6 @@ class MainWindow(QMainWindow):
                 #f1.create_product(product, value, qnt)
            
 
-    
-
-        
-        
-        
-   
 
     def valid(self):
         product = self.product.text().strip()
@@ -235,6 +236,11 @@ class MainWindow(QMainWindow):
         )
 
         self.reset()
+
+    def change(self):
+        self.window = MainWindow2()
+        self.window.show()
+        
 
 
 if __name__ == '__main__':

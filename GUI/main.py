@@ -1,12 +1,10 @@
-from operator import itemgetter
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 
 from qt_material import apply_stylesheet
 
-from . import Filial
 
-print(Filial())
 
 
 class Ui_MainWindow(object):

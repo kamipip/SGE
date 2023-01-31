@@ -40,9 +40,9 @@ class Filial(CrudOperation):
 
     
     
-filial1 = Filial('filial1', 'ferro', 'avenida do aço')
+#filial1 = Filial('filial1', 'ferro', 'avenida do aço')
 
-filial1.create_filial(filial1.nome, filial1.tipo, filial1.endereco)
+#filial1.create_filial(filial1.nome, filial1.tipo, filial1.endereco)
 
 #filial1.delete_filial(filial1.nome)
 
