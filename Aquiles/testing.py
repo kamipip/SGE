@@ -9,6 +9,7 @@
 
 #
 from animations.loading import Animation
+
 #from GUI.sistema_estoque.filial import Filial
 #from GUI.sistema_estoque.matriz import Matriz
 #from GUI.sistema_estoque.produto import Produto
