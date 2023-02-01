@@ -17,6 +17,7 @@ Após modificar algum arquivo
 ```console
 git add . 
 git commit -m "colocar aqui modificação que fez"
+git push
 ```
 
 
