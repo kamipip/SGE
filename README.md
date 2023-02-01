@@ -1,6 +1,6 @@
 # Sistema de Gestão de Estoque
 
-!!!Aviso para os Programadores!!!:
+Aviso para os Programadores:
 Antes de clonar e dar o Git pull executar o seguinte comando para baixar todas as dependências do sistema
 
 ```console
