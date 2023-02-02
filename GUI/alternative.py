@@ -150,6 +150,13 @@ class MainWindow(QMainWindow):
 
         qnt = self.table.model().data(NewIndex_qnt)
 
+        NewIndex_estoque = self.table.model().data.index(index.row(), 0)
+
+        estoque = self.table.model().data(NewIndex_estoque)
+
+        
+
+
      
 
         reply = QMessageBox()
@@ -166,8 +173,6 @@ class MainWindow(QMainWindow):
              dialog.setIcon(QMessageBox.Icon.Information)
              ret = dialog.exec()
              #Saving data in database
-             f1 = Produto(product, value, qnt)
-             f1.create_product(product, value, qnt)
            
 
 
@@ -175,6 +180,7 @@ class MainWindow(QMainWindow):
         product = self.product.text().strip()
         value = self.value.text().strip()
         estoque = self.estoque.text().strip()
+    
 
         
         if not product:
@@ -234,6 +240,9 @@ class MainWindow(QMainWindow):
         self.table.setItem(
             row, 3, QTableWidgetItem(self.estoque.text())
         )
+
+        p = Produto(self.product.text(), self.value.text(), self.estoque.text())
+        p.create_product(p.nome, p.quantidade, p.valor)
 
         self.reset()
 

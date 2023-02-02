@@ -10,7 +10,6 @@ with open("edit_matriz.txt", "r") as arquivo:
 
 class Matriz:
     def __init__(self, nome, tipo, endereco):
-        
         self.nome = nome
         self.tipo = tipo
         self.endereco = endereco

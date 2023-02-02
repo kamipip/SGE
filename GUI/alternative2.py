@@ -85,6 +85,7 @@ class MainWindow2(QMainWindow):
         layout.addRow('Local:', self.local)
         layout.addRow('Endereço:', self.endereco)
         layout.addRow('Tipo:', self.tipo)
+        print(self.tipo.text)
 
 
         btn_add = QPushButton('Salvar Produto')
@@ -188,6 +189,8 @@ class MainWindow2(QMainWindow):
         self.table.setItem(
             row, 2, QTableWidgetItem(self.tipo.text())
         )
+
+        
 
         self.reset()
 

@@ -12,6 +12,7 @@ with open("sistema_estoque/edit_pdt.txt", "r") as arquivo:
     FIELD1 = arquivo.readline().strip()
     FIELD2 = arquivo.readline().strip()
     FIELD3 = arquivo.readline().strip()
+    FIELD4 = arquivo.readline().strip()
     
 class Produto:
     def __init__(self, nome, valor, quantidade):
@@ -19,8 +20,6 @@ class Produto:
         self.nome = nome
         self.valor = valor
         self.quantidade = quantidade
-
-
 
 
 
@@ -37,6 +36,8 @@ class Produto:
             CrudOperation.update_info(str(TABLE), str(FIELD2), old_info, new_info)
         if select_code == 3:
             CrudOperation.update_info(str(TABLE), str(FIELD3), old_info, new_info)
+        if select_code == 4:
+            CrudOperation.update_info(str(TABLE), str(FIELD4), old_info, new_info)
     
     def delete_product(self, product_name):
         CrudOperation.delete_info(str(TABLE), str(FIELD1), product_name)

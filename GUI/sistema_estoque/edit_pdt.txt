@@ -2,3 +2,4 @@ informacoes_produto
 nome
 valor
 quantidade
+estoque
