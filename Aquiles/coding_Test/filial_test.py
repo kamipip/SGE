@@ -1,5 +1,4 @@
 from crud_operation import CrudOperation
-
 #Not Necessary Anymore
 #from typing import Final
 
@@ -37,8 +36,6 @@ class Filial(CrudOperation):
     def delete_filial(self, filial_del):
         CrudOperation.delete_info(str(TABLE), str(FIELD1), filial_del)
 
-    def riscar():
-        print("Algo")
 
 
     

@@ -1,11 +1,10 @@
-from db_operation import insert, update,delete
+from GUI.sistema_estoque.db_operation import insert, update,delete
 
 class CrudOperation():
-    
     def __init__(self, valor):
         self.valor = valor
     
-  
+
     def create(tbl_name,fieldname1, fieldname2, fieldname3, value1, value2, value3):
         insert(tbl_name, fieldname1, fieldname2, fieldname3, value1, value2, value3)
 
@@ -24,3 +23,4 @@ class CrudOperation():
     
     def delete_info(tbl_name, field,value):
         delete(tbl_name, field, value)
+

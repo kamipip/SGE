@@ -1,13 +1,11 @@
 
-#from GUI.sistema_estoque import crud_operation
+from crud_operation import CrudOperation
 from typing import Final
-
-from sistema_estoque.crud_operation import CrudOperation
 
 
 
 #Using Cryptography
-with open("sistema_estoque/edit_pdt.txt", "r") as arquivo:
+with open("edit_pdt.txt", "r") as arquivo:
     TABLE = arquivo.readline().strip()
     FIELD1 = arquivo.readline().strip()
     FIELD2 = arquivo.readline().strip()
@@ -25,7 +23,7 @@ class Produto:
 
 
     def create_product(self, nome, valor, quantidade):
-        if int(quantidade) <=0:
+        if quantidade <=0:
             print("Não é possível transferir nada")
         else:
             CrudOperation.create(str(TABLE), str(FIELD1), str(FIELD2), str(FIELD3), nome, valor, quantidade)

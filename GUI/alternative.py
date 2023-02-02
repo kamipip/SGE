@@ -17,9 +17,9 @@ from alternative2 import MainWindow2
 
 
 #Modules to Create, Read and Update
-#from filial import Filial
-#from produto import Produto
-#from matriz import Matriz
+#from sistema_estoque.filial import Filial
+from sistema_estoque.produto import Produto
+#from sistema_estoque.matriz import Matriz
 
 
 
@@ -166,8 +166,8 @@ class MainWindow(QMainWindow):
              dialog.setIcon(QMessageBox.Icon.Information)
              ret = dialog.exec()
              #Saving data in database
-                #f1 = Produto(product, value, qnt)
-                #f1.create_product(product, value, qnt)
+             f1 = Produto(product, value, qnt)
+             f1.create_product(product, value, qnt)
            
 
 

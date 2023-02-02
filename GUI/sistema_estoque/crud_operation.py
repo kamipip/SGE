@@ -1,4 +1,4 @@
-from db_operation import insert, update,delete
+from sistema_estoque.db_operation import insert, read_table, update, delete
 
 class CrudOperation():
     
@@ -10,9 +10,6 @@ class CrudOperation():
         insert(tbl_name, fieldname1, fieldname2, fieldname3, value1, value2, value3)
 
         
-    
-    def read(self, valor):
-        pass
 
 
 
@@ -24,3 +21,6 @@ class CrudOperation():
     
     def delete_info(tbl_name, field,value):
         delete(tbl_name, field, value)
+
+    def read_info(self):
+        read_table(self)

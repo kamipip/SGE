@@ -11,9 +11,7 @@ from itertools import cycle
 from threading import Thread
 import os
 
-from art import *
 
-from pyfiglet import Figlet
 
 
 #Super Class Responsible to every animations in the test module
@@ -34,20 +32,6 @@ class Animation():
             sleep(0.1)
         terminal.write('\rTest Complete!  🐕 ✔️✔️✔️')
         terminal.flush()
-
-    def personal_write():
-        #random = art("random")
-        #tprint("random")
-
-        f = Figlet(font='slant')
-        word = 'HELLO'
-        curr_word = ''
-        for char in word:
-            os.system('reset') #assuming the platform is linux, clears the screen
-            curr_word += char;
-            print (f.renderText(curr_word))
-            sleep(1)
-       
 
 
 

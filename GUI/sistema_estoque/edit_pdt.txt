@@ -1,4 +1,4 @@
-informacoes_produtos
-nome_produto
+informacoes_produto
+nome
 valor
 quantidade

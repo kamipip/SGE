@@ -13,6 +13,9 @@ from PyQt6.QtGui import QIcon, QAction
 
 from PyQt6.QtWidgets import *
 
+import sqlite3
+from sistema_estoque.db_operation import read_table
+
 
 
 
@@ -50,6 +53,7 @@ class MainWindow2(QMainWindow):
 
         self.table.setHorizontalHeaderLabels(products[0].keys())
         self.table.setRowCount(len(products))
+        self.loaddata()
 
         #Lock Maximaze button
         #Not Working 
@@ -186,6 +190,21 @@ class MainWindow2(QMainWindow):
         )
 
         self.reset()
+
+    def loaddata(self):
+        connection = sqlite3.connect('test_database.db')
+        cur = connection.cursor()
+        sqlstr = "SELECT a.product_name, b.price FROM products a LEFT JOIN prices b ON a.product_id = b.product_id "
+
+        tablerow=0
+        results = cur.execute(sqlstr)
+        self.table.setRowCount(8)
+        for row in results:
+            self.table.setItem(tablerow, 0, QTableWidgetItem(row[0]))
+            self.table.setItem(tablerow, 1, QTableWidgetItem(row[1]))
+            #self.table.setItem(tablerow, 2, QTableWidgetItem(row[2]))
+            #self.table.setItem(tablerow, 2, QTableWidgetItem(row[3]))
+            tablerow+=1
 
     def change(self):
         self.window = MainWindow2()

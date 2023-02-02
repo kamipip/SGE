@@ -43,17 +43,6 @@ def insert(tbl_name,fieldname1, fieldname2, fieldname3, value1, value2,value3):
     except mysql.connector.Error as err:
         print(err)
 
-def read_table():
-
-
-    saida = mycursor.execute("SELECT * FROM informacoes_produto")
-
-    myresult = mycursor.fetchall()
-    mydb.commit()
-    print(myresult)
-    return myresult
-
-
 
 
 
@@ -88,14 +77,3 @@ def delete(tbl_name, field, value):
      
     except mysql.connector.Error as err:
         print("Connection error")
-
-
-
-
-
-
-
-
-
-
-
