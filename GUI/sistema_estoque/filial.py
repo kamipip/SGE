@@ -27,8 +27,7 @@ class Filial(CrudOperation):
     #Life is good, but not a strawberry
     def edit_filial(self, old_info, new_info, select_code):
         if select_code == 1:
-            CrudOperation.update_info(str(TABLE), str(FIELD1), old_info, new_info)
-        
+            CrudOperation.update_info(str(TABLE), str(FIELD1), old_info, new_info) 
         if select_code == 2:
             CrudOperation.update_info(str(TABLE), str(FIELD2), old_info, new_info)
         if select_code == 3:
@@ -37,8 +36,6 @@ class Filial(CrudOperation):
     def delete_filial(self, filial_del):
         CrudOperation.delete_info(str(TABLE), str(FIELD1), filial_del)
 
-    def riscar():
-        print("Algo")
 
 
     

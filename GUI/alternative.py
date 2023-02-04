@@ -77,13 +77,15 @@ class MainWindow(QMainWindow):
         self.product = QLineEdit(form)
         self.value = QLineEdit(form)
         self.qnt = QSpinBox(form, minimum=18, maximum=67)
-        self.estoque = QLineEdit(form)
+        self.estoque = QComboBox()
+        self.estoque.addItems(['ZR456Filial', 'ZR456FMatriz', 'T45433Filial', 'T45433Filial'])
         self.qnt.clear()
 
         layout.addRow('Produto', self.product)
         layout.addRow('Valor R$:', self.value)
         layout.addRow('Unidades:', self.qnt)
         layout.addRow('Destino:', self.estoque)
+        
 
 
         btn_add = QPushButton('Salvar Produto')
@@ -110,7 +112,7 @@ class MainWindow(QMainWindow):
         change_window_action.triggered.connect(self.change)
         toolbar.addAction(change_window_action)
         dock.setWidget(form)
-
+        
         
 
 
@@ -130,50 +132,8 @@ class MainWindow(QMainWindow):
         if button == QMessageBox.StandardButton.Yes:
             self.table.removeRow(current_row)
 
-    def transfer(self):
-        #Getting Content From Product
-
-        #Not the best solution, but a structal solution
-
-        index = self.table.currentIndex()
-
-        NewIndex_product = self.table.model().index(index.row(), 0)
-        #print('Index is :',NewIndex)
-
-        product = self.table.model().data(NewIndex_product)
-
-        NewIndex_value = self.table.model().index(index.row(),1)
-
-        value = self.table.model().data(NewIndex_value)
-
-        NewIndex_qnt = self.table.model().index(index.row(),2)
-
-        qnt = self.table.model().data(NewIndex_qnt)
-
-        NewIndex_estoque = self.table.model().data.index(index.row(), 0)
-
-        estoque = self.table.model().data(NewIndex_estoque)
-
-        
-
-
-     
-
-        reply = QMessageBox()
-        reply.setText("Deseja Realmente Transferir o Produto")
-        reply.setStandardButtons(QMessageBox.StandardButton.Yes | 
-                     QMessageBox.StandardButton.No)
-        reply.setIcon(QMessageBox.Icon.Question)
-
-        x = reply.exec()
-
-        if x == QMessageBox.StandardButton.Yes:
-             dialog = QMessageBox(parent=self, text="Transferência Realizada com Sucesso")
-             dialog.setWindowTitle("Aviso")
-             dialog.setIcon(QMessageBox.Icon.Information)
-             ret = dialog.exec()
-             #Saving data in database
-           
+    
+             
 
 
     def valid(self):
@@ -181,7 +141,6 @@ class MainWindow(QMainWindow):
         value = self.value.text().strip()
         estoque = self.estoque.text().strip()
     
-
         
         if not product:
             QMessageBox.critical(self, 'Error', 'Insira o nome do produto')
@@ -240,11 +199,65 @@ class MainWindow(QMainWindow):
         self.table.setItem(
             row, 3, QTableWidgetItem(self.estoque.text())
         )
+        p = Produto(self.product.text(), self.value.text(), self.qnt.text(), self.estoque.text())
 
-        p = Produto(self.product.text(), self.value.text(), self.estoque.text())
-        p.create_product(p.nome, p.quantidade, p.valor)
+        p.create_product(p.nome, p.quantidade, p.valor, p.estoque)
 
-        self.reset()
+        #self.reset()
+  
+
+
+    def transfer(self):
+        #Getting Content From Product
+
+        #Not the best solution, but a structal solution
+
+        index = self.table.currentIndex()
+
+        NewIndex_product = self.table.model().index(index.row(), 0)
+        #print('Index is :',NewIndex)
+
+        product_act = self.table.model().data(NewIndex_product)
+
+        NewIndex_value = self.table.model().index(index.row(),1)
+
+        value_act = self.table.model().data(NewIndex_value)
+
+        NewIndex_qnt = self.table.model().index(index.row(),2)
+
+        qnt_act = self.table.model().data(NewIndex_qnt)
+
+        NewIndex_estoque = self.table.model().index(index.row(), 3)
+
+        #old_value = self.table.model().index(index.row(), 3)
+        
+        estoque_act = self.table.model().data(NewIndex_estoque)
+        #old_estoque = self.estoque.text().strip()
+        
+
+
+        reply = QMessageBox()
+        reply.setText("Deseja Realmente Transferir o Produto")
+        reply.setStandardButtons(QMessageBox.StandardButton.Yes | 
+                     QMessageBox.StandardButton.No)
+        reply.setIcon(QMessageBox.Icon.Question)
+
+        x = reply.exec()
+
+        if x == QMessageBox.StandardButton.Yes:
+             dialog = QMessageBox(parent=self, text="Transferência Realizada com Sucesso")
+             dialog.setWindowTitle("Aviso")
+             dialog.setIcon(QMessageBox.Icon.Information)
+             ret = dialog.exec()
+             #Saving data in database
+             p = Produto(self.product.text(), self.value.text(), self.qnt.text(), self.estoque.text())
+
+             old_estoque = self.estoque.text().strip()
+
+             p.edit_product(old_estoque,estoque_act,4)
+
+             
+            
 
     def change(self):
         self.window = MainWindow2()
