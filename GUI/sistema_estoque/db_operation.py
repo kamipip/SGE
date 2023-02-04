@@ -46,7 +46,6 @@ def insert(tbl_name,fieldname1, fieldname2, fieldname3,fieldname4,value1, value2
 
 def read_table():
 
-
     saida = mycursor.execute("SELECT * FROM informacoes_produto")
 
     myresult = mycursor.fetchall()

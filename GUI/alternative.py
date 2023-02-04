@@ -16,6 +16,7 @@ from PyQt6.QtWidgets import *
 from alternative2 import MainWindow2
 
 
+
 #Modules to Create, Read and Update
 #from sistema_estoque.filial import Filial
 from sistema_estoque.produto import Produto
