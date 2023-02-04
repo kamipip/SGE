@@ -1,0 +1,13 @@
+{
+    "freeze_dir": "target/${app_name}",
+    "test_dirs": [
+        "src/unittest/python",
+        "src/integrationtest/python"
+    ],
+    "files_to_filter": [],
+    "hidden_imports": [],
+    "extra_pyinstaller_args": [],
+    "public_settings": ["app_name", "author", "version", "environment"],
+    "release": false,
+    "environment": "local"
+}

@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+fbs_tutorial.egg-info/PKG-INFO
+fbs_tutorial.egg-info/SOURCES.txt
+fbs_tutorial.egg-info/dependency_links.txt
+fbs_tutorial.egg-info/requires.txt
+fbs_tutorial.egg-info/top_level.txt

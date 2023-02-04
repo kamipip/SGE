@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import (
     QMessageBox, QToolBar, QMessageBox
 )
 from PyQt6.QtCore import Qt,QSize
-from PyQt6.QtGui import QIcon, QAction
+from PyQt6.QtGui import QIcon, QAction, QIcon
 
 from PyQt6.QtWidgets import *
 
@@ -33,6 +33,7 @@ class MainWindow(QMainWindow):
         super().__init__(*args, **kwargs)
         self.setWindowTitle('Sistema de Cadastro de Gestão')
         self.setGeometry(100, 100, 600, 400)
+        self.setWindowIcon(QIcon('./assets/icon.png'))
 
         #Produto Teste
         products = [

@@ -13,8 +13,7 @@ from PyQt6.QtGui import QIcon, QAction
 
 from PyQt6.QtWidgets import *
 
-import sqlite3
-from sistema_estoque.db_operation import read_table
+
 
 
 
@@ -34,6 +33,7 @@ class MainWindow2(QMainWindow):
         super().__init__(*args, **kwargs)
         self.setWindowTitle('Sistema de Cadastro de Matriz e Filial')
         self.setGeometry(100, 100, 600, 400)
+        self.setWindowIcon(QIcon('./assets/icon.png'))
 
         #Produto Teste
         products = [

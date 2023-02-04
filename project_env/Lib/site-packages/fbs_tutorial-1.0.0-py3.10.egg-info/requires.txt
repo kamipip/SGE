@@ -1,0 +1,7 @@
+
+[:python_version == "3.5" or python_version == "3.6"]
+fbs
+PyQt5==5.9.2
+
+[:python_version >= "3.7"]
+fbs-tutorial-shim
