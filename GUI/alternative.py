@@ -79,6 +79,7 @@ class MainWindow(QMainWindow):
         self.qnt = QSpinBox(form, minimum=18, maximum=67)
         self.estoque = QComboBox()
         self.estoque.addItems(['ZR456Filial', 'ZR456FMatriz', 'T45433Filial', 'T45433Filial'])
+        self.real_estoque = self.estoque.currentIndexChanged
         self.qnt.clear()
 
         layout.addRow('Produto', self.product)
@@ -139,7 +140,7 @@ class MainWindow(QMainWindow):
     def valid(self):
         product = self.product.text().strip()
         value = self.value.text().strip()
-        estoque = self.estoque.text().strip()
+        estoque = self.estoque.currentTextChanged
     
         
         if not product:
@@ -161,7 +162,7 @@ class MainWindow(QMainWindow):
             qnt = int(self.qnt.text().strip())
         except ValueError:
             QMessageBox.critical(self, 'Error', 'Insira a quantidade correta ')
-            self.age.setFocus()
+            self.qnt.setFocus()
             return False
 
          #Something to not buffer overflow   
@@ -176,7 +177,7 @@ class MainWindow(QMainWindow):
         self.product.clear()
         self.value.clear()
         self.qnt.clear()
-        self.estoque.clear()
+        self.real_estoque.clear()
 
 
 
@@ -197,9 +198,9 @@ class MainWindow(QMainWindow):
         )
 
         self.table.setItem(
-            row, 3, QTableWidgetItem(self.estoque.text())
+            row, 3, QTableWidgetItem(self.estoque.currentText())
         )
-        p = Produto(self.product.text(), self.value.text(), self.qnt.text(), self.estoque.text())
+        p = Produto(self.product.text(), self.value.text(), self.qnt.text(), self.estoque.currentText())
 
         p.create_product(p.nome, p.quantidade, p.valor, p.estoque)
 
@@ -250,9 +251,9 @@ class MainWindow(QMainWindow):
              dialog.setIcon(QMessageBox.Icon.Information)
              ret = dialog.exec()
              #Saving data in database
-             p = Produto(self.product.text(), self.value.text(), self.qnt.text(), self.estoque.text())
+             p = Produto(self.product.text(), self.value.text(), self.qnt.text(), self.estoque.currentText())
 
-             old_estoque = self.estoque.text().strip()
+             old_estoque = self.estoque.currentText()
 
              p.edit_product(old_estoque,estoque_act,4)
 
