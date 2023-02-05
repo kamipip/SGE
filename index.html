@@ -1,0 +1,528 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="demo/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sge-sistema-de-gestao-de-estoque" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              *SGE - Sistema de Gestão de Estoque 🗳️ ☛ 🏭*
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          *SGE - Sistema de Gestão de Estoque 🗳️ ☛ 🏭*
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        *SGE - Sistema de Gestão de Estoque 🗳️ ☛ 🏭*
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funcionalidades" class="md-nav__link">
+    Funcionalidades 📦✔️
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao" class="md-nav__link">
+    Instalação 🚀🐍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-de-instalacao" class="md-nav__link">
+    Comandos de Instalação 🖥️👩‍💻
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    Uso 🐧🗔
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribuicao" class="md-nav__link">
+    Contribuição ⚙️🔝
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#licenca" class="md-nav__link">
+    Licença ©️ ⚖️
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-de-diretorios" class="md-nav__link">
+    Estrutura de Diretorios 📁
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo/" class="md-nav__link">
+        *Demonstração 🖥️*
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="proc/" class="md-nav__link">
+        *Processo de Desenvolvimento ⚙️🖥️👩‍💻*
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funcionalidades" class="md-nav__link">
+    Funcionalidades 📦✔️
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao" class="md-nav__link">
+    Instalação 🚀🐍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-de-instalacao" class="md-nav__link">
+    Comandos de Instalação 🖥️👩‍💻
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    Uso 🐧🗔
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribuicao" class="md-nav__link">
+    Contribuição ⚙️🔝
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#licenca" class="md-nav__link">
+    Licença ©️ ⚖️
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-de-diretorios" class="md-nav__link">
+    Estrutura de Diretorios 📁
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sge-sistema-de-gestao-de-estoque"><em>SGE - Sistema de Gestão de Estoque 🗳️ ☛ 🏭</em></h1>
+<p>Este é um sistema de gerenciamento de estoque para ajudar a gerenciar as entradas, saídas e níveis de estoque de produtos em uma empresa. Um sistema de gestão de estoque é uma solução tecnológica utilizada para controlar e gerenciar o estoque de um negócio ou organização. Ele permite que a empresa acompanhe a quantidade de itens em estoque, sua localização, data de validade e outros fatores importantes. Além disso, os sistemas de gestão de estoque também permitem que a empresa monitore a entrada e saída de itens, gerencie pedidos e compras de estoque, e forneça relatórios e insights sobre a performance do estoque.</p>
+<p>Os sistemas de gestão de estoque também são projetados para ser integrados com outros sistemas e processos da empresa, como o sistema de gerenciamento de vendas ou o sistema de gerenciamento financeiro. Isso permite uma visão mais completa da performance do estoque e ajuda a prevenir problemas como falta ou excesso de estoque.</p>
+<p>Os sistemas de gestão de estoque são uma parte importante da operação de muitas empresas e podem ajudar a melhorar a eficiência, aumentar a precisão e reduzir custos. Eles também ajudam a garantir a disponibilidade dos itens certos no momento certo, o que é crucial para atender às necessidades dos clientes e manterem a satisfação do cliente.</p>
+<h2 id="funcionalidades">Funcionalidades 📦✔️</h2>
+<ul>
+<li><strong>Permitir o cadastro de uma matriz e filial (Inclusão, Exclusão e Edição)</strong></li>
+<li><strong>Inserir dados sobre uma matriz e filial como: nome, endereço, tipo</strong></li>
+<li><strong>Permitir o cadastro de um produto (Inclusão, Exclusão e Edição)</strong></li>
+<li><strong>Inserir dados sobre um produto como: nome, quantidade, valor e destino</strong></li>
+<li><strong>Permitir a transferência de um produto entre filiais, bem como entre filial e matriz;</strong></li>
+</ul>
+<h2 id="instalacao">Instalação 🚀🐍</h2>
+<ol>
+<li>
+<p>Clone ou faça o download deste repositório  <code>https://github.com/kamipip/projeto01</code></p>
+</li>
+<li>
+<p>Instale as dependências necessárias listadas no arquivo <code>requirements.txt</code></p>
+</li>
+<li>
+<p>Execute o arquivo <code>alternative.py</code> para iniciar o sistema</p>
+</li>
+</ol>
+<h2 id="comandos-de-instalacao">Comandos de Instalação 🖥️👩‍💻</h2>
+<pre><code>git clone https://github.com/kamipip/projeto01
+</code></pre>
+<pre><code>cd projeto01
+</code></pre>
+<pre><code>pip install -r requirements.txt
+</code></pre>
+<pre><code>python alternative.py
+</code></pre>
+<h2 id="uso">Uso 🐧🗔</h2>
+<ol>
+<li>Adicione produtos ao estoque fornecendo seus detalhes, como nome, descrição, preço e quantidade inicial.</li>
+<li>Atualize as informações dos produtos existentes quando necessário.</li>
+<li>Registre as entradas e saídas de estoque para atualizar o nível de estoque.</li>
+<li>Faça a transferência de um produto de uma matriz para uma filial</li>
+</ol>
+<h2 id="contribuicao">Contribuição ⚙️🔝</h2>
+<p>Contribuições são sempre bem-vindas! Para contribuir, basta abrir uma issue ou criar um pull request com suas sugestões ou correções.</p>
+<h2 id="licenca">Licença ©️ ⚖️</h2>
+<p>Este software está licenciado sob a licença MIT. Veja o arquivo <a href="LICENSE">LICENSE</a> para mais detalhes.</p>
+<h2 id="estrutura-de-diretorios">Estrutura de Diretorios 📁</h2>
+<pre><code>📁Aquiles/
+    📁animations/  # Pasta com as animações da Stack de Teste Aquiles.
+        🐍loading.py
+
+    📁coding_test/ # Ambiente de testes de código
+        🐍class_coding_test.py
+
+    📁function_test/ # Ambiente com testes de função
+        🐍class_test.py
+
+📁GUI/ # Diretorio Principal
+    📁assets/ # imagens utilizadas na GUI
+        🖼️icon.png
+        🖼️product.png
+        🖼️ industry.png
+        🖼️exclude.png
+
+    📁build/ # pasta onde está localizada o executável do beta do programa
+        📁MyApplication/
+            🗔MyApplication.exe
+
+    📁sistema_estoque # Model e Controller da aplicação
+        🐍crud_operation.py
+        🐍db_operation.py
+        🖹edit_filial.txt
+        🖹edit_matriz.txt
+        🖹edit_pdt.txt
+        🐍produto.py
+        🐍matriz.py
+        🐍filial.py
+
+    🐍alternative.py # Arquivo principal da primeira interface
+    🐍alternative2.py # Arquivo secundário da primeira interface
+
+📁sql_scripts/ # Scripts do banco de dados
+    🗄️filial.sql
+    🗄️matriz.sql
+    🗄️produto.sql
+
+ 🖹requirements.txt # Arquivos com as dependências necessárias
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>
