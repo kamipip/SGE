@@ -2,7 +2,5 @@ informacoes_matriz
 nome
 tipo
 endereco
-produto
-quantidade
-valor
+
 

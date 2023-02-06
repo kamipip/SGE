@@ -2,6 +2,4 @@ informacoes_filial
 nome
 tipo
 endereco
-produto
-quantidade
-valor
+
