@@ -36,6 +36,10 @@ pip install -r requirements.txt
 ```
 
 ```
+cd GUI
+```
+
+```
 python alternative.py
 ```
 
