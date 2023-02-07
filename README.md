@@ -24,11 +24,11 @@ Os sistemas de gestão de estoque são uma parte importante da operação de mui
 ## Comandos de Instalação 🖥️👩‍💻
 
 ```
-git clone https://github.com/kamipip/projeto01
+git clone https://github.com/kamipip/SGE
 ```
 
 ```
-cd projeto01
+cd SGE
 ```
 
 ```
