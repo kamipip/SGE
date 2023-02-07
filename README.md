@@ -47,6 +47,8 @@ python alternative.py
 https://mockup-delta.vercel.app/
 <br>
 https://sge-documentacao.vercel.app/
+<br>
+https://www.canva.com/design/DAFZXYNY85o/dykoXpPPvsbvAB8YMmE90A/edit?utm_content=DAFZXYNY85o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton****
 
 
 
