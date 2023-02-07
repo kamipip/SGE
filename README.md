@@ -15,7 +15,7 @@ Os sistemas de gestão de estoque são uma parte importante da operação de mui
 - **Permitir a transferência de um produto entre filiais, bem como entre filial e matriz;**
 
 ## Instalação 🚀🐍
-1. Clone ou faça o download deste repositório  `https://github.com/kamipip/projeto01`
+1. Clone ou faça o download deste repositório  `https://github.com/kamipip/SGE`
 
 2. Instale as dependências necessárias listadas no arquivo `requirements.txt`
 
